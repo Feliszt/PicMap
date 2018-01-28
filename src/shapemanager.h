@@ -18,15 +18,21 @@ public:
     Shape AddSquare(ofTrueTypeFont font);
     Shape AddCircle(ofTrueTypeFont font);
 
+    // methods
+    void update();
+
+    // variables
+    int  numShapes = 0;
+    vector<Shape>   shapes;
+    int             currEditShape;
+
     // draw stuff
-    void drawShapes();
-    void drawButtons(ofMatrix4x4 trans);
+    void drawShapes(ofColor contentColor);
+    void drawButtons(ofMatrix4x4 trans, ofColor contentColor);
+    void toString();
 private:
     // variables
-    vector<Shape>   shapes;
     vector<Button>  buttons;
-    int             numShapes = 0;
-    int             currEditShape;
 };
 
 #endif // SHAPEMANAGER_H

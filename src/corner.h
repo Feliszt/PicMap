@@ -8,26 +8,28 @@
 
 class Corner
 {
-public:    
+public:        
+    // constructors
+    Corner(float _x, float _y);
+
+    // variables
+    int   id;
+    bool  editShape;
+    ofVec2f pos;
+
     // methods
     void draw();
     ofVec2f getPos();
     float getPosX();
     float getPosY();
-
-    Corner(float _x, float _y);
-
-
-
 private:
-
     // variables
-    ofVec2f pos, mousePosStart, squarePosStart;
-    float hovRad = 30;
-    float reqSz = 10;
-    bool hovered;
-    bool mousePressedPrev;
-    bool dragged, draggedPrev;
+    ofVec2f mousePosStart, squarePosStart;
+    float   hovRad = 30;
+    float   reqSz = 10;
+    bool    hovered;
+    bool    mousePressedPrev;
+    bool    dragged, draggedPrev;
 };
 
 #endif // CORNER_H

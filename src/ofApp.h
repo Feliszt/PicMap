@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxXmlSettings.h"
 #include "ofxSimpleFloatingGui.h"
 #include "corner.h"
 #include "shape.h"
@@ -13,6 +14,8 @@ public:
     void update();
     void draw();
     void drawSecondWindow(ofEventArgs& args);
+    void saveSettings();
+    void loadSettings();
 
     void keyPressed(int key);
     void keyReleased(int key);
@@ -41,6 +44,13 @@ public:
         // buttons
     Button          addSquareShape;
     Button          addFreeShape;
+    Button          saveSettingsButton;
     int             nShape = 0;
     vector<Button>  shapeEdit;
+        // settings
+    ofxXmlSettings  settings;
+        // play mode
+    bool            play = false;
+    int             currShapeDrawn;
+    int             nDrawCall = 0;
 };

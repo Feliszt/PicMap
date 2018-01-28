@@ -10,15 +10,30 @@
 class Shape
 {
 public:
+    // constructors
     Shape(int numVertex);
 
+    // variables
+    bool         edit;
+    int          numVert;
+    vector<Corner>  corners;
+    int          id;
+    bool         move;
+
+    // methods
     void draw();
+    void update();
+    void setShapeCorners(int _numVert, vector<ofVec2f> _corners);
+    vector<ofVec2f> getVertices();
 
 private:
     // variables
-    vector<Corner>  corners;
-    ofVec2f         pos;
-    float           rho = 50;
+    vector<ofVec2f> cornersPosStarMove;
+    ofVec2f         pos, mousePosStart;
+    float           rho = 75;
+    bool            moveModHovered, mousePressedPrev, movePrev;
+    float           hovRad = 10;
+
 };
 
 #endif // SHAPE_H

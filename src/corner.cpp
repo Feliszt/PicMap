@@ -11,7 +11,7 @@ Corner::Corner(float _x, float _y)
 void Corner::draw() {
         /// Update
      // hovering
-     hovered = (ofGetMouseX() < pos.x + hovRad) && (ofGetMouseX() > pos.x - hovRad) && (ofGetMouseY() < pos.y + hovRad) && (ofGetMouseY() > pos.y - hovRad);
+     hovered = (ofGetMouseX() < pos.x + hovRad) && (ofGetMouseX() > pos.x - hovRad) && (ofGetMouseY() < pos.y + hovRad) && (ofGetMouseY() > pos.y - hovRad) && editShape;
 
      // dragging
      if(hovered && ofGetMousePressed() && !mousePressedPrev) {
@@ -34,13 +34,11 @@ void Corner::draw() {
      mousePressedPrev = ofGetMousePressed();
 
         /// Draw
-     ofSetColor(ofColor::white);
      ofFill();
      if(hovered) {
       ofNoFill();
       ofDrawRectangle(pos.x - hovRad / 2, pos.y - hovRad / 2, hovRad, hovRad);
      }
-     ofSetColor(ofColor::white);
      ofFill();
      ofDrawRectangle(pos.x - reqSz / 2, pos.y - reqSz / 2, reqSz, reqSz);
 }
@@ -50,9 +48,9 @@ ofVec2f Corner::getPos() {
 }
 
 float Corner::getPosX() {
-    return pos.x - reqSz / 2;
+    return pos.x;
 }
 
 float Corner::getPosY() {
-    return pos.y - reqSz / 2;
+    return pos.y;
 }
